@@ -12,11 +12,11 @@ final class ContactDetailViewController: UIViewController {
 
     fileprivate let _viewModel: ContactDetailViewModel
 
-    fileprivate let _view: UIView
+    fileprivate let _view: ContactDetailView
 
-    init(viewModel: ContactDetailViewModel, _view: UIView = ContactDetailView() ) {
+    init(viewModel: ContactDetailViewModel) {
         _viewModel = viewModel
-        self._view = _view
+        _view = ContactDetailView(phones: viewModel.phones, addresses: viewModel.addresses)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -27,8 +27,22 @@ final class ContactDetailViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.addSubview(_view)
-        _view.autoPinEdgesToSuperviewEdges()
+        _view.autoPinEdgesToSuperviewSafeArea()
 
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindViewModel()
+    }
+}
+
+fileprivate extension ContactDetailViewController {
+
+    func bindViewModel() {
+        _view.fullName.text = _viewModel.fullName
+    }
+    
+
 }

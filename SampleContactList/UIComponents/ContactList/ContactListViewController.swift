@@ -26,6 +26,7 @@ final class ContactListViewController: UIViewController {
 
     override func loadView() {
         view = UIView()
+        view.backgroundColor = .white
         view.addSubview(_view)
         _view.autoPinEdgesToSuperviewEdges()
     }
@@ -33,7 +34,7 @@ final class ContactListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-            bindViewModel()
+        bindViewModel()
 
         _view.contactList.register(cellClass: ContactListCell.self, forCellReuseIdentifier: .contactListCell)
     }
@@ -53,7 +54,7 @@ fileprivate extension ContactListViewController {
 
     fileprivate func bindViewModel() {
         _viewModel
-            .fetchContacts()
+            .fetchContacts
             .producer
             .startWithValues { [unowned self] _ in
                 self._view.contactList.reloadData()
@@ -83,7 +84,14 @@ extension ContactListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ContactDetailViewController(viewModel: ContactDetailViewModel()), animated: true)
+        _viewModel
+            .fetchContactDetails
+            .apply(indexPath.row)
+            .take(first: 1)
+            .ignoringErrors()
+            .startWithValues { contactDetailViewModel in
+                self.navigationController?.pushViewController(ContactDetailViewController(viewModel: contactDetailViewModel), animated: true)
+            }
     }
 
 }

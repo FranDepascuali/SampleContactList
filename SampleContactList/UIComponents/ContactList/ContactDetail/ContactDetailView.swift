@@ -14,20 +14,51 @@ final class ContactDetailView: UIView {
 
     let fullName = UILabel()
 
-    init() {
+    let detailsStackView: UIStackView
+
+    init(phones: [Phone], addresses: [Address]) {
+        detailsStackView = createDetailsStackView(phones: phones, addresses: addresses)
         super.init(frame: .zero)
         backgroundColor = .white
         addSubview(profileImageView)
         addSubview(fullName)
+        addSubview(detailsStackView)
         setConstraints()
         fake()
-
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+fileprivate func createDetailsStackView(phones: [Phone], addresses: [Address]) -> UIStackView {
+    let createStackViewItem: (String, String) -> UIView = { fieldLabel, fieldValue in
+        let label = UILabel()
+        label.text = fieldLabel
+
+        let value = UILabel()
+        value.text = fieldValue
+
+        let stackView = UIStackView(arrangedSubviews: [label, value])
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 7
+
+        return stackView
+    }
+
+    let phonesViews = phones.map { createStackViewItem("\($0.phoneType)", $0.number) }
+
+    let adressesViews = addresses.map { createStackViewItem("\($0.addressType)", $0.address) }
+
+    let containerStackView = UIStackView(arrangedSubviews: phonesViews + adressesViews)
+    containerStackView.axis = .vertical
+    containerStackView.spacing = 7
+
+    return containerStackView
 }
 
 fileprivate extension ContactDetailView {
@@ -44,6 +75,9 @@ fileprivate extension ContactDetailView {
 
         fullName.autoAlignAxis(.vertical, toSameAxisOf: profileImageView)
         fullName.autoPinEdge(.top, to: .bottom, of: profileImageView, withOffset: 15)
+
+        detailsStackView.autoPinEdge(.top, to: .bottom, of: fullName, withOffset: 15)
+        detailsStackView.autoPinEdge(toSuperviewEdge: .left, withInset: 15)
     }
 
 }

@@ -24,3 +24,11 @@ struct Contact {
 
     let photo: String
 }
+
+struct DetailedContact {
+
+    let contact: Contact
+
+    let addresses: [Address]
+
+}

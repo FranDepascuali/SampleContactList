@@ -10,13 +10,13 @@ import Foundation
 
 struct ContactListCellViewModel {
 
-    fileprivate let _contact: Contact
+    let contact: Contact
 
     public init(contact: Contact) {
-        _contact = contact
+        self.contact = contact
     }
 
     var fullName: String {
-        return "\(_contact.firstName) \(_contact.lastName)"
+        return "\(contact.firstName) \(contact.lastName)"
     }
 }

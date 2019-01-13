@@ -33,4 +33,8 @@ extension SignalProducer {
         return self.logEvents(identifier: name, events: LoggingEvent.SignalProducer.allEvents, logger: simpleDebugLog)
     }
 
+    func ignoringErrors() -> SignalProducer<Value, NoError> {
+        return flatMapError { _ in SignalProducer<Value, NoError>.empty }
+    }
+
 }

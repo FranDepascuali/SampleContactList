@@ -15,7 +15,7 @@ protocol ContactsRepositoryType {
     func fetchContacts() -> SignalProducer<[Contact], NoError>
 
     // TODO: This can error
-    func details(for: Contact) -> SignalProducer<String, NoError>
+    func details(for: Contact) -> SignalProducer<DetailedContact, NoError>
 }
 
 class FakeContactsRepository: ContactsRepositoryType {
@@ -30,8 +30,8 @@ class FakeContactsRepository: ContactsRepositoryType {
         return SignalProducer(value: fakeContacts)
     }
 
-    func details(for: Contact) -> SignalProducer<String, NoError> {
-        return SignalProducer(value: "Detail")
+    func details(for contact: Contact) -> SignalProducer<DetailedContact, NoError> {
+        return SignalProducer(value: DetailedContact(contact: contact, addresses: fakeAddresses))
     }
 }
 
@@ -48,3 +48,5 @@ let fakeContact = Contact(
 
 
 let defaultFakeContacts = Array.init(repeating: fakeContact, count: 7)
+
+let fakeAddresses = [Address.init(addressType: .home, address: "Av siempre viva 1234")]
