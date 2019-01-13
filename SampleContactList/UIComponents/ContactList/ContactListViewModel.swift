@@ -11,36 +11,45 @@ import ReactiveSwift
 
 final class ContactListViewModel {
 
-    fileprivate let _contacts: MutableProperty<[ContactListCellViewModel]> = .init([])
+    fileprivate let _contacts: MutableProperty<[ContactListSectionViewModel]> = .init([])
 
-    fileprivate(set) var fetchContactDetails: Action<Int, ContactDetailViewModel, NoError>!
+    fileprivate(set) var fetchContactDetails: Action<IndexPath, ContactDetailViewModel, NoError>!
 
     fileprivate(set) var fetchContacts: SignalProducer<(), NoError>!
 
     init(contactsRepository: ContactsRepositoryType) {
-        fetchContactDetails = Action.init(execute: { [unowned self] index in
-            let contact = self[index].contact
-            return contactsRepository.details(for: contact).map(ContactDetailViewModel.init)
+        fetchContactDetails = Action.init(execute: { [unowned self] indexPath in
+            return contactsRepository
+                .details(for: self.contactCellViewModel(section: indexPath.section, row: indexPath.row).contact)
+                .map(ContactDetailViewModel.init)
         })
 
         fetchContacts = contactsRepository
             .fetchContacts()
             .on(value: { [unowned self] contacts in
-                self._contacts.value = contacts.map(ContactListCellViewModel.init)
+                self._contacts.value = ContactListSectionViewModel.from(groupedContacts: groupedByFirstLetter(contacts: contacts))
             })
             .map { _ in () }
     }
 
-    func numberOfContacts() -> Int {
+    func title(forSection section: Int) -> Character {
+        return _contacts.value[section].character
+    }
+
+    func numberOfContacts(forSection section: Int) -> Int {
+        return _contacts.value[section].contactListCellViewModels.count
+    }
+
+    func numberOfSections() -> Int {
         return _contacts.value.count
     }
 
-    public subscript(index: Int) -> ContactListCellViewModel {
-        return _contacts.value[index]
+    func contactCellViewModel(section: Int, row: Int) -> ContactListCellViewModel {
+        return _contacts.value[section].contactListCellViewModels[row]
     }
 
-    func details(for: Contact) -> SignalProducer<String, NoError> {
-        return SignalProducer(value: "")
-    }
+}
 
+func groupedByFirstLetter(contacts: [Contact]) -> Dictionary<Character, [Contact]>  {
+    return Dictionary(grouping: contacts, by: { $0.firstName.first! })
 }

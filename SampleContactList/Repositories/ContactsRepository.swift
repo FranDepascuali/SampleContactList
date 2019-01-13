@@ -46,7 +46,16 @@ let fakeContact = Contact(
     thumbURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Creative-Tail-People-police-man.svg/128px-Creative-Tail-People-police-man.svg.png",
     photo: "https://static.pexels.com/photos/101584/pexels-photo-101584.jpeg")
 
+let fakeContact2 = Contact(
+    id: 0,
+    firstName: "Francisco",
+    lastName: "Peluffo",
+    birthDate: Date(),
+    phones: [fakeHomeNumber, fakeOfficeNumber],
+    thumbURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Creative-Tail-People-police-man.svg/128px-Creative-Tail-People-police-man.svg.png",
+    photo: "https://static.pexels.com/photos/101584/pexels-photo-101584.jpeg")
 
-let defaultFakeContacts = Array.init(repeating: fakeContact, count: 7)
+
+let defaultFakeContacts = Array.init(repeating: fakeContact, count: 7) + Array.init(repeating: fakeContact2, count: 7)
 
 let fakeAddresses = [Address.init(addressType: .home, address: "Av siempre viva 1234")]

@@ -66,16 +66,16 @@ fileprivate extension ContactListViewController {
 extension ContactListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return _viewModel.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _viewModel.numberOfContacts()
+        return _viewModel.numberOfContacts(forSection: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: .contactListCell) as! ContactListCell
-        cell.bindViewModel(viewModel: _viewModel[indexPath.row])
+        cell.bindViewModel(viewModel: _viewModel.contactCellViewModel(section: indexPath.section, row: indexPath.row))
         return cell
     }
 
@@ -83,10 +83,14 @@ extension ContactListViewController: UITableViewDataSource, UITableViewDelegate 
         return 100
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "\(_viewModel.title(forSection: section))"
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         _viewModel
             .fetchContactDetails
-            .apply(indexPath.row)
+            .apply(indexPath)
             .take(first: 1)
             .ignoringErrors()
             .startWithValues { contactDetailViewModel in
