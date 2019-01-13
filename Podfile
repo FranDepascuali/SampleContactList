@@ -7,6 +7,9 @@ target 'SampleContactList' do
 
   pod 'ReactiveSwift', '4.0.0'
   pod 'ReactiveCocoa', '8.0.2'
+  pod 'Result', '4.1.0'
+
+  pod 'PureLayout', '3.1.4'
 
   target 'SampleContactListTests' do
     inherit! :search_paths

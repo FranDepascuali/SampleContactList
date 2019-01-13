@@ -1,5 +1,6 @@
 PODS:
   - Nimble (7.3.1)
+  - PureLayout (3.1.4)
   - Quick (1.3.2)
   - ReactiveCocoa (8.0.2):
     - ReactiveSwift (~> 4.0)
@@ -9,13 +10,16 @@ PODS:
 
 DEPENDENCIES:
   - Nimble (= 7.3.1)
+  - PureLayout (= 3.1.4)
   - Quick (= 1.3.2)
   - ReactiveCocoa (= 8.0.2)
   - ReactiveSwift (= 4.0.0)
+  - Result (= 4.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Nimble
+    - PureLayout
     - Quick
     - ReactiveCocoa
     - ReactiveSwift
@@ -23,11 +27,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
   ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
 
-PODFILE CHECKSUM: 04f1895cedf52518024e8c1cff98d66a17db034c
+PODFILE CHECKSUM: b077d58baff99e483cbff03a589caf945b9907d2
 
 COCOAPODS: 1.5.3
