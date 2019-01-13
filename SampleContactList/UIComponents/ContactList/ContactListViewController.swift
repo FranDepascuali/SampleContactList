@@ -37,6 +37,11 @@ final class ContactListViewController: UIViewController {
 
         _view.contactList.register(cellClass: ContactListCell.self, forCellReuseIdentifier: .contactListCell)
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
 }
 
 fileprivate extension ContactListViewController {
@@ -75,6 +80,10 @@ extension ContactListViewController: UITableViewDataSource, UITableViewDelegate 
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(ContactDetailViewController(viewModel: ContactDetailViewModel()), animated: true)
     }
 
 }

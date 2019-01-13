@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         let mainViewController = ContactListViewController(viewModel: ContactListViewModel(contactsRepository: FakeContactsRepository()))
-        window!.rootViewController = mainViewController
+        let nav = UINavigationController(rootViewController: mainViewController)
+        window!.rootViewController = nav
         window!.makeKeyAndVisible()
         return true
     }

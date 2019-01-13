@@ -28,5 +28,7 @@ final class ContactDetailViewController: UIViewController {
         view = UIView()
         view.addSubview(_view)
         _view.autoPinEdgesToSuperviewEdges()
+
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
