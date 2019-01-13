@@ -31,6 +31,7 @@ class ContactListCell: UITableViewCell {
 
     func bindViewModel(viewModel: ContactListCellViewModel) {
         fullName.text = viewModel.fullName
+        thumb.image = UIImage(named: "sample")
     }
 
     override func awakeFromNib() {
@@ -42,10 +43,13 @@ class ContactListCell: UITableViewCell {
 fileprivate extension ContactListCell {
 
     func setConstraints() {
-        thumb.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .right)
         thumb.autoMatch(.width, to: .height, of: thumb)
+        thumb.autoMatch(.height, to: .height, of: contentView, withMultiplier: 0.7)
+        thumb.autoPinEdge(toSuperviewEdge: .left, withInset: 10)
+        thumb.autoAlignAxis(toSuperviewAxis: .horizontal)
 
         fullName.autoAlignAxis(.horizontal, toSameAxisOf: thumb)
+        fullName.autoPinEdge(.left, to: .right, of: thumb, withOffset: 10)
     }
 
 }

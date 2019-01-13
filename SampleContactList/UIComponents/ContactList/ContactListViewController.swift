@@ -34,7 +34,7 @@ final class ContactListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        bindViewModel()
+            bindViewModel()
 
         _view.contactList.register(cellClass: ContactListCell.self, forCellReuseIdentifier: .contactListCell)
     }
