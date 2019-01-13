@@ -11,8 +11,6 @@ import PureLayout
 
 final class ContactListView: UIView {
 
-    fileprivate var _didSetConstraints = false
-
     let searchBar = UISearchBar(frame: .zero)
 
     let contactList = UITableView(frame: .zero)
@@ -21,18 +19,11 @@ final class ContactListView: UIView {
         super.init(frame: .zero)
         addSubview(searchBar)
         addSubview(contactList)
+        setConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func updateConstraints() {
-        if !_didSetConstraints {
-            _didSetConstraints = true
-            setConstraints()
-        }
-        super.updateConstraints()
     }
 
 }

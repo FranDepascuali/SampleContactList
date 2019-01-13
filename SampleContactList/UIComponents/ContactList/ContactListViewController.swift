@@ -13,11 +13,10 @@ final class ContactListViewController: UIViewController {
 
     fileprivate let _viewModel: ContactListViewModel
 
-    fileprivate let _view: ContactListView
+    fileprivate let _view = ContactListView()
 
     init(viewModel: ContactListViewModel) {
         _viewModel = viewModel
-        _view = ContactListView()
         super.init(nibName: nil, bundle: nil)
     }
 

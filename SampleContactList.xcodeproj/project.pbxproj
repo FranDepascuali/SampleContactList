@@ -44,6 +44,7 @@
 		0BF2248221EBBE9C005552D1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248021EBBE9C005552D1 /* Address.swift */; };
 		0BF2248421EBBEB0005552D1 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248321EBBEB0005552D1 /* Phone.swift */; };
 		0BF2248521EBBEB0005552D1 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248321EBBEB0005552D1 /* Phone.swift */; };
+		0BF2248621EBC2BD005552D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD66D7B21EAAE60003324EF /* Assets.xcassets */; };
 		6A41FD263F9FEF114B39DF82 /* Pods_SampleContactList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AA9CDEF1F8B8044F76A9E2 /* Pods_SampleContactList.framework */; };
 		6E028BBD7379264672400064 /* Pods_App_ContactListFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBE74F71DBC3202983C7F0A /* Pods_App_ContactListFramework.framework */; };
 		7A61A346E4F88ABDF06EB078 /* Pods_App_SampleContactList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0FB6C6F7F013AC691FA0A5 /* Pods_App_SampleContactList.framework */; };
@@ -439,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF2248621EBC2BD005552D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

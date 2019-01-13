@@ -6,8 +6,11 @@ import ReactiveSwift
 import PureLayout
 @testable import ContactListFramework
 
+PlaygroundPage.current.needsIndefiniteExecution = true
+
 
 class MyViewController : UIViewController {
+
     override func loadView() {
         let view = UIView()
         view.backgroundColor = .white
@@ -22,9 +25,12 @@ class MyViewController : UIViewController {
     }
 }
 
-PlaygroundPage.current.liveView = ContactListViewController(
+let contactList = ContactListViewController(
     viewModel: ContactListViewModel(contactsRepository: FakeContactsRepository()))
 
+let contactDetails = ContactDetailViewController(viewModel: ContactDetailViewModel(), _view: ContactDetailView())
+
+PlaygroundPage.current.liveView = contactDetails
 
 
 

@@ -6,4 +6,8 @@
 //  Copyright © 2019 depa. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class ContactDetailViewModel {
+
+}
