@@ -34,10 +34,6 @@ class ContactListCell: UITableViewCell {
         thumb.image = UIImage(named: "sample")
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
 }
 
 fileprivate extension ContactListCell {
