@@ -8,12 +8,6 @@
 
 import Foundation
 
-//import enum Result.NoError
-//import struct Result.AnyError
-//
-//typealias NoError = Result.NoError
-//typealias AnyError = Result.AnyError
-
 struct Contact {
 
     let id: Int
@@ -30,30 +24,3 @@ struct Contact {
 
     let photo: String
 }
-
-enum AddressType {
-    case home
-    case work
-}
-
-struct Address {
-
-    let addressType: AddressType
-
-    let address: String
-}
-
-struct Phone {
-
-    let phoneType: PhoneType
-
-    let number: String
-
-}
-
-enum PhoneType {
-    case home
-    case office
-    case cellular
-}
-

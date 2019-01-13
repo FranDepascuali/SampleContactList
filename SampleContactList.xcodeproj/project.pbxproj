@@ -40,6 +40,10 @@
 		0BF2247A21EBB5BB005552D1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247921EBB5BB005552D1 /* UITableView.swift */; };
 		0BF2247B21EBB5BB005552D1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247921EBB5BB005552D1 /* UITableView.swift */; };
 		0BF2247C21EBB60B005552D1 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247621EBB554005552D1 /* Identifiers.swift */; };
+		0BF2248121EBBE9C005552D1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248021EBBE9C005552D1 /* Address.swift */; };
+		0BF2248221EBBE9C005552D1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248021EBBE9C005552D1 /* Address.swift */; };
+		0BF2248421EBBEB0005552D1 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248321EBBEB0005552D1 /* Phone.swift */; };
+		0BF2248521EBBEB0005552D1 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2248321EBBEB0005552D1 /* Phone.swift */; };
 		6A41FD263F9FEF114B39DF82 /* Pods_SampleContactList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AA9CDEF1F8B8044F76A9E2 /* Pods_SampleContactList.framework */; };
 		6E028BBD7379264672400064 /* Pods_App_ContactListFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBE74F71DBC3202983C7F0A /* Pods_App_ContactListFramework.framework */; };
 		7A61A346E4F88ABDF06EB078 /* Pods_App_SampleContactList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0FB6C6F7F013AC691FA0A5 /* Pods_App_SampleContactList.framework */; };
@@ -103,6 +107,8 @@
 		0BD66D9721EAB118003324EF /* SampleContactPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SampleContactPlayground.playground; path = SampleContactList/Resources/SampleContactPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0BF2247621EBB554005552D1 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0BF2247921EBB5BB005552D1 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		0BF2248021EBBE9C005552D1 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		0BF2248321EBBEB0005552D1 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		1D57FB922BCC44DEE9F4A37F /* Pods-App-SampleContactList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SampleContactList.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-SampleContactList/Pods-App-SampleContactList.release.xcconfig"; sourceTree = "<group>"; };
 		7F978B51707EB24A1696D65D /* Pods-App-SampleContactList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SampleContactList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App-SampleContactList/Pods-App-SampleContactList.debug.xcconfig"; sourceTree = "<group>"; };
 		8C8DB041AAA608A179F8CB30 /* Pods-App-ContactListFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ContactListFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-ContactListFramework/Pods-App-ContactListFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				0BD66D9521EAB094003324EF /* Contact.swift */,
+				0BF2248021EBBE9C005552D1 /* Address.swift */,
+				0BF2248321EBBEB0005552D1 /* Phone.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -584,9 +592,11 @@
 				0BA0F36721EABCF50054AEE2 /* ContactListViewController.swift in Sources */,
 				0BA0F37D21EBABA60054AEE2 /* ContactListCell.swift in Sources */,
 				0BF2247B21EBB5BB005552D1 /* UITableView.swift in Sources */,
+				0BF2248221EBBE9C005552D1 /* Address.swift in Sources */,
 				0BA0F35E21EABC950054AEE2 /* ContactsRepository.swift in Sources */,
 				0BA0F37A21EBAB5F0054AEE2 /* ContactListCellViewModel.swift in Sources */,
 				0BA0F35921EABB8E0054AEE2 /* Contact.swift in Sources */,
+				0BF2248521EBBEB0005552D1 /* Phone.swift in Sources */,
 				0BF2247C21EBB60B005552D1 /* Identifiers.swift in Sources */,
 				0BA0F37321EABF950054AEE2 /* ContactDetailViewController.swift in Sources */,
 				0BA0F37621EABF9F0054AEE2 /* ContactDetailViewModel.swift in Sources */,
@@ -598,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF2248421EBBEB0005552D1 /* Phone.swift in Sources */,
 				0BA0F37C21EBABA60054AEE2 /* ContactListCell.swift in Sources */,
 				0BD66D9621EAB094003324EF /* Contact.swift in Sources */,
 				0BA0F36B21EABED60054AEE2 /* SignalProducer.swift in Sources */,
@@ -607,6 +618,7 @@
 				0BA0F36F21EABF8B0054AEE2 /* ContactDetailView.swift in Sources */,
 				0BA0F36521EABCDF0054AEE2 /* ContactListView.swift in Sources */,
 				0BD66D7521EAAE5D003324EF /* AppDelegate.swift in Sources */,
+				0BF2248121EBBE9C005552D1 /* Address.swift in Sources */,
 				0BF2247721EBB554005552D1 /* Identifiers.swift in Sources */,
 				0BA0F37921EBAB5F0054AEE2 /* ContactListCellViewModel.swift in Sources */,
 				0BA0F37521EABF9F0054AEE2 /* ContactDetailViewModel.swift in Sources */,
