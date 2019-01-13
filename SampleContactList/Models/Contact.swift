@@ -8,11 +8,11 @@
 
 import Foundation
 
-import enum Result.NoError
-import struct Result.AnyError
-
-typealias NoError = Result.NoError
-typealias AnyError = Result.AnyError
+//import enum Result.NoError
+//import struct Result.AnyError
+//
+//typealias NoError = Result.NoError
+//typealias AnyError = Result.AnyError
 
 struct Contact {
     fileprivate let id: Int
