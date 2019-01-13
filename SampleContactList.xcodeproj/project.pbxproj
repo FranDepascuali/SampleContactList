@@ -255,13 +255,13 @@
 		0BD66D7321EAAE5D003324EF /* SampleContactList */ = {
 			isa = PBXGroup;
 			children = (
-				0BF2247821EBB5A4005552D1 /* UIExtensions */,
-				0BA0F37E21EBAC090054AEE2 /* Resources */,
-				0BA0F36921EABEC70054AEE2 /* Extensions */,
+				0BD66D7421EAAE5D003324EF /* AppDelegate.swift */,
 				0BA0F35B21EABC620054AEE2 /* UIComponents */,
+				0BA0F37E21EBAC090054AEE2 /* Resources */,
 				0BA0F35A21EABC400054AEE2 /* Repositories */,
 				0BD66D9421EAB07B003324EF /* Models */,
-				0BD66D7421EAAE5D003324EF /* AppDelegate.swift */,
+				0BA0F36921EABEC70054AEE2 /* Extensions */,
+				0BF2247821EBB5A4005552D1 /* UIExtensions */,
 			);
 			path = SampleContactList;
 			sourceTree = "<group>";
