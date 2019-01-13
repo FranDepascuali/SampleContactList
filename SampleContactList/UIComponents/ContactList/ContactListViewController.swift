@@ -8,6 +8,8 @@
 
 import Foundation
 import PureLayout
+import ReactiveCocoa
+import ReactiveSwift
 
 final class ContactListViewController: UIViewController {
 
@@ -59,6 +61,20 @@ fileprivate extension ContactListViewController {
             .startWithValues { [unowned self] _ in
                 self._view.contactList.reloadData()
         }
+
+        _viewModel
+            .searchedForText
+            .producer
+            .startWithValues { [unowned self] _ in
+                self._view.contactList.reloadData()
+        }
+
+
+        _viewModel.searchText <~ _view
+            .searchBar
+            .reactive
+            .continuousTextValues
+        
     }
 
 }
