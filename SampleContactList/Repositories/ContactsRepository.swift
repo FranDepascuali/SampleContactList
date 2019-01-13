@@ -19,14 +19,10 @@ protocol ContactsRepositoryType {
 
 class FakeContactsRepository: ContactsRepositoryType {
 
-    fileprivate var _fakeContacts: [Contact] = []
-
-    func setFakedContacts(contacts: [Contact]) {
-        _fakeContacts = contacts
-    }
+    public var fakeContacts: [Contact] = []
 
     func fetchContacts() -> SignalProducer<[Contact], NoError> {
-        return SignalProducer(value: _fakeContacts)
+        return SignalProducer(value: fakeContacts)
     }
 
     func details(for: Contact) -> SignalProducer<String, NoError> {
