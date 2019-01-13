@@ -7,13 +7,19 @@
 //
 
 import Foundation
+import ReactiveSwift
 
-class ContactListViewModel {
+final class ContactListViewModel {
 
     fileprivate let _contactsRepository: ContactsRepositoryType
 
+    fileprivate let _contacts: MutableProperty<[Contact]> = .init([])
+
+    let contacts: ReadOnlyProperty<[Contact]>
+
     init(contactsRepository: ContactsRepositoryType) {
         _contactsRepository = contactsRepository
+        contacts = ReadOnlyProperty(_contacts)
     }
 
 }
