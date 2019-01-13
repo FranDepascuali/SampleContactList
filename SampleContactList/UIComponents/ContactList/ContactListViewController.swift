@@ -35,6 +35,8 @@ final class ContactListViewController: UIViewController {
         super.viewDidLoad()
         setDelegates()
         bindViewModel()
+
+        _view.contactList.register(cellClass: ContactListCell.self, forCellReuseIdentifier: .contactListCell)
     }
 }
 
@@ -46,20 +48,34 @@ fileprivate extension ContactListViewController {
     }
 
     fileprivate func bindViewModel() {
-        
+        _viewModel
+            .fetchContacts()
+            .producer
+            .startWithValues { [unowned self] _ in
+                self._view.contactList.reloadData()
+        }
     }
 
 }
 
 extension ContactListViewController: UITableViewDataSource, UITableViewDelegate {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _viewModel.contacts.value.count
+        return _viewModel.numberOfContacts()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: .contactListCell) as! ContactListCell
+        cell.bindViewModel(viewModel: _viewModel[indexPath.row])
+        return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
 }

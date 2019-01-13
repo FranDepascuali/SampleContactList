@@ -36,6 +36,10 @@
 		0BD66D7F21EAAE60003324EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BD66D7D21EAAE60003324EF /* LaunchScreen.storyboard */; };
 		0BD66D8A21EAAE60003324EF /* SampleContactListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD66D8921EAAE60003324EF /* SampleContactListTests.swift */; };
 		0BD66D9621EAB094003324EF /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD66D9521EAB094003324EF /* Contact.swift */; };
+		0BF2247721EBB554005552D1 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247621EBB554005552D1 /* Identifiers.swift */; };
+		0BF2247A21EBB5BB005552D1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247921EBB5BB005552D1 /* UITableView.swift */; };
+		0BF2247B21EBB5BB005552D1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247921EBB5BB005552D1 /* UITableView.swift */; };
+		0BF2247C21EBB60B005552D1 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2247621EBB554005552D1 /* Identifiers.swift */; };
 		6A41FD263F9FEF114B39DF82 /* Pods_SampleContactList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AA9CDEF1F8B8044F76A9E2 /* Pods_SampleContactList.framework */; };
 		6E028BBD7379264672400064 /* Pods_App_ContactListFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBE74F71DBC3202983C7F0A /* Pods_App_ContactListFramework.framework */; };
 		7A61A346E4F88ABDF06EB078 /* Pods_App_SampleContactList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0FB6C6F7F013AC691FA0A5 /* Pods_App_SampleContactList.framework */; };
@@ -97,6 +101,8 @@
 		0BD66D8B21EAAE60003324EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BD66D9521EAB094003324EF /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		0BD66D9721EAB118003324EF /* SampleContactPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SampleContactPlayground.playground; path = SampleContactList/Resources/SampleContactPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0BF2247621EBB554005552D1 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		0BF2247921EBB5BB005552D1 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		1D57FB922BCC44DEE9F4A37F /* Pods-App-SampleContactList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SampleContactList.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-SampleContactList/Pods-App-SampleContactList.release.xcconfig"; sourceTree = "<group>"; };
 		7F978B51707EB24A1696D65D /* Pods-App-SampleContactList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SampleContactList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App-SampleContactList/Pods-App-SampleContactList.debug.xcconfig"; sourceTree = "<group>"; };
 		8C8DB041AAA608A179F8CB30 /* Pods-App-ContactListFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ContactListFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-ContactListFramework/Pods-App-ContactListFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 				0BD66D7B21EAAE60003324EF /* Assets.xcassets */,
 				0BD66D7D21EAAE60003324EF /* LaunchScreen.storyboard */,
 				0BD66D8021EAAE60003324EF /* Info.plist */,
+				0BF2247621EBB554005552D1 /* Identifiers.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 		0BD66D7321EAAE5D003324EF /* SampleContactList */ = {
 			isa = PBXGroup;
 			children = (
+				0BF2247821EBB5A4005552D1 /* UIExtensions */,
 				0BA0F37E21EBAC090054AEE2 /* Resources */,
 				0BA0F36921EABEC70054AEE2 /* Extensions */,
 				0BA0F35B21EABC620054AEE2 /* UIComponents */,
@@ -266,6 +274,14 @@
 				0BD66D9521EAB094003324EF /* Contact.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0BF2247821EBB5A4005552D1 /* UIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BF2247921EBB5BB005552D1 /* UITableView.swift */,
+			);
+			path = UIExtensions;
 			sourceTree = "<group>";
 		};
 		45D1A91DD499B78DA920A2CE /* Frameworks */ = {
@@ -567,9 +583,11 @@
 				0BA0F37021EABF8B0054AEE2 /* ContactDetailView.swift in Sources */,
 				0BA0F36721EABCF50054AEE2 /* ContactListViewController.swift in Sources */,
 				0BA0F37D21EBABA60054AEE2 /* ContactListCell.swift in Sources */,
+				0BF2247B21EBB5BB005552D1 /* UITableView.swift in Sources */,
 				0BA0F35E21EABC950054AEE2 /* ContactsRepository.swift in Sources */,
 				0BA0F37A21EBAB5F0054AEE2 /* ContactListCellViewModel.swift in Sources */,
 				0BA0F35921EABB8E0054AEE2 /* Contact.swift in Sources */,
+				0BF2247C21EBB60B005552D1 /* Identifiers.swift in Sources */,
 				0BA0F37321EABF950054AEE2 /* ContactDetailViewController.swift in Sources */,
 				0BA0F37621EABF9F0054AEE2 /* ContactDetailViewModel.swift in Sources */,
 				0BA0F36C21EABED60054AEE2 /* SignalProducer.swift in Sources */,
@@ -589,9 +607,11 @@
 				0BA0F36F21EABF8B0054AEE2 /* ContactDetailView.swift in Sources */,
 				0BA0F36521EABCDF0054AEE2 /* ContactListView.swift in Sources */,
 				0BD66D7521EAAE5D003324EF /* AppDelegate.swift in Sources */,
+				0BF2247721EBB554005552D1 /* Identifiers.swift in Sources */,
 				0BA0F37921EBAB5F0054AEE2 /* ContactListCellViewModel.swift in Sources */,
 				0BA0F37521EABF9F0054AEE2 /* ContactDetailViewModel.swift in Sources */,
 				0BA0F35D21EABC8C0054AEE2 /* ContactsRepository.swift in Sources */,
+				0BF2247A21EBB5BB005552D1 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

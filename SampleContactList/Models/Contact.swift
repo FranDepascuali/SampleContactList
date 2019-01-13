@@ -15,7 +15,8 @@ import Foundation
 //typealias AnyError = Result.AnyError
 
 struct Contact {
-    fileprivate let id: Int
+
+    let id: Int
 
     let firstName: String
 
@@ -46,7 +47,7 @@ struct Phone {
 
     let phoneType: PhoneType
 
-    let number: Int
+    let number: String
 
 }
 

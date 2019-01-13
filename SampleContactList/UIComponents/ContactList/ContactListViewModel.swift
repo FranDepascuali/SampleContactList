@@ -13,13 +13,27 @@ final class ContactListViewModel {
 
     fileprivate let _contactsRepository: ContactsRepositoryType
 
-    fileprivate let _contacts: MutableProperty<[Contact]> = .init([])
-
-    let contacts: ReadOnlyProperty<[Contact]>
+    fileprivate let _contacts: MutableProperty<[ContactListCellViewModel]> = .init([])
 
     init(contactsRepository: ContactsRepositoryType) {
         _contactsRepository = contactsRepository
-        contacts = ReadOnlyProperty(_contacts)
+    }
+
+    func numberOfContacts() -> Int {
+        return _contacts.value.count
+    }
+
+    public subscript(index: Int) -> ContactListCellViewModel {
+        return _contacts.value[index]
+    }
+
+    func fetchContacts() -> SignalProducer<(), NoError> {
+        return _contactsRepository
+            .fetchContacts()
+            .on(value: { contacts in
+                self._contacts.value = contacts.map(ContactListCellViewModel.init)
+            })
+            .map { _ in () }
     }
 
 }

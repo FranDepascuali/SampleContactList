@@ -10,9 +10,13 @@ import Foundation
 
 struct ContactListCellViewModel {
 
-//    public let donationDetailsViewModel: DonationDetailsViewModel
+    fileprivate let _contact: Contact
 
     public init(contact: Contact) {
-//        donationDetailsViewModel = DonationDetailsViewModel(donation: donation)
+        _contact = contact
+    }
+
+    var fullName: String {
+        return "\(_contact.firstName) \(_contact.lastName)"
     }
 }
