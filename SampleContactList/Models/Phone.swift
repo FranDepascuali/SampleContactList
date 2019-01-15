@@ -16,9 +16,23 @@ struct Phone {
 
 }
 
-enum PhoneType {
+enum PhoneType: String {
     case home
     case office
     case cellular
+
+    init?(rawValue: String){
+        switch rawValue {
+        case "Home":
+            self = .home
+        case "Cellphone":
+            self = .cellular
+        case "Office":
+            self = .office
+        default:
+            return nil
+        }
+        
+    }
 }
 

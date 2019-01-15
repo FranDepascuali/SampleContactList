@@ -16,7 +16,7 @@ struct Contact {
 
     let lastName: String
 
-    let birthDate: Date
+    let birthDate: String
 
     let phones: [Phone]
 
@@ -25,10 +25,14 @@ struct Contact {
     let photo: String
 }
 
+struct ContactDetails {
+    let addresses: [Address]
+}
+
 struct DetailedContact {
 
     let contact: Contact
 
-    let addresses: [Address]
+    let contactDetails: ContactDetails
 
 }

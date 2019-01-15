@@ -42,6 +42,7 @@ fileprivate extension ContactDetailViewController {
 
     func bindViewModel() {
         _view.fullName.text = _viewModel.fullName
+        _view.profileImageView.sd_setImage(with: URL(string: _viewModel.profilePictureURL), placeholderImage: UIImage(named: "placeholder"))
     }
     
 

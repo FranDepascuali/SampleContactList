@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ContactListCell: UITableViewCell {
 
@@ -31,7 +32,7 @@ class ContactListCell: UITableViewCell {
 
     func bindViewModel(viewModel: ContactListCellViewModel) {
         fullName.text = viewModel.fullName
-        thumb.image = UIImage(named: "sample")
+        thumb.sd_setImage(with: URL(string: viewModel.thumbURL), placeholderImage: UIImage(named: "placeholder"))
     }
 
 }

@@ -14,21 +14,16 @@ def app_pods
   pod 'Result', '4.1.0'
 
   pod 'PureLayout', '3.1.4'
+
+  pod 'SDWebImage', '4.4.3'
+  pod 'Alamofire', '4.7.3'
+  pod 'SwiftyJSON', '~> 4.0'
 end
 
-# target 'MyTests' do
-#     testing_pods
-# end
-
-# target 'MyUITests' do
-#     testing_pods
-# end
-
-# There are no targets called "Shows" in any Xcode projects
+# There are no targets called "App" in any Xcode projects
 abstract_target 'App' do
   app_pods
 
-  # Has its own copy of ShowsKit + ShowWebAuth
   target 'SampleContactList' do
       target 'SampleContactListTests' do
       inherit! :search_paths
@@ -38,50 +33,8 @@ abstract_target 'App' do
     end
   end
 
-  # Has its own copy of ShowsKit + ShowTVAuth
+  # This is used for the playground
   target 'ContactListFramework' do
 
   end
 end
-
-
-
-# target 'SampleContactList' do
-#   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-#   app_pods
-
-
-#   target 'SampleContactListTests' do
-#     inherit! :search_paths
-#     # Pods for testing
-#     testing_pods
-
-#   end
-
-# end
-
-# target 'ContactListFramework' do
-
-# end
-
-
-# # Podfile
-
-# platform :ios, '9.0'
-
-# use_frameworks!
-
-# # My other pods
-
-# def testing_pods
-#     pod 'Quick', '0.5.0'
-#     pod 'Nimble', '2.0.0-rc.1'
-# end
-
-# target 'MyTests' do
-#     testing_pods
-# end
-
-# target 'MyUITests' do
-#     testing_pods
-# end

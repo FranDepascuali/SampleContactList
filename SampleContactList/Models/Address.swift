@@ -11,6 +11,18 @@ import Foundation
 enum AddressType {
     case home
     case work
+
+    init?(rawValue: String){
+        switch rawValue {
+        case "home":
+            self = .home
+        case "work":
+            self = .work
+        default:
+            return nil
+        }
+
+    }
 }
 
 struct Address {

@@ -19,4 +19,8 @@ struct ContactListCellViewModel {
     var fullName: String {
         return "\(contact.firstName) \(contact.lastName)"
     }
+
+    var thumbURL: String {
+        return contact.thumbURL
+    }
 }

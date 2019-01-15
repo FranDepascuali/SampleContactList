@@ -25,7 +25,11 @@ final class ContactDetailViewModel {
     }
 
     var addresses: [Address] {
-        return _detailedContact.addresses
+        return _detailedContact.contactDetails.addresses
+    }
+
+    var profilePictureURL: String {
+        return _detailedContact.contact.photo
     }
 
 }
